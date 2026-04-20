@@ -65,15 +65,17 @@ function Hub() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden font-body text-on-surface bg-[#0a1012]" role="main">
-      {/* Background Video (YouTube Embed) */}
+      {/* Background Video (Local Asset) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <iframe
-          className="absolute top-1/2 left-1/2 w-[120vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 object-cover opacity-30 mix-blend-screen"
-          src="https://www.youtube.com/embed/XryIwrqLOXs?autoplay=1&mute=1&controls=0&loop=1&playlist=XryIwrqLOXs&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&enablejsapi=1"
-          frameBorder="0"
-          title="Atmospheric Stadium Background"
-          allow="autoplay; encrypted-media"
-        ></iframe>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+        >
+          <source src="/Untitled design.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-radial-gradient from-transparent to-[#0a1012] opacity-80" />
       </div>
 

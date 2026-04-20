@@ -20,21 +20,22 @@ export default function LandingScreen({ onEnter }) {
 
   return (
     <main className="fixed inset-0 z-[100] bg-[#0a1012] flex flex-col items-center justify-center overflow-hidden">
-      {/* Background Video (YouTube Embed) */}
+      {/* Background Video (Local Asset) */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ duration: 2 }}
         className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none"
       >
-        <iframe
-          className="absolute top-1/2 left-1/2 w-[115vw] h-[115vh] -translate-x-1/2 -translate-y-1/2 object-cover"
-          src="https://www.youtube.com/embed/uAISeuW0wpc?autoplay=1&mute=1&controls=0&loop=1&playlist=uAISeuW0wpc&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&enablejsapi=1"
-          frameBorder="0"
-          title="Background Visual"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-        ></iframe>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/VenueQ_Hero_Animation_Video_Creation.mp4" type="video/mp4" />
+        </video>
       </motion.div>
       
       {/* Dynamic Overlay */}
