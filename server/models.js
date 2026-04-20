@@ -6,19 +6,19 @@ const VenueSchema = new mongoose.Schema({
 });
 
 const ZoneSchema = new mongoose.Schema({
-  venue_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Venue' },
+  venue_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Venue', index: true },
   name: { type: String, required: true },
   capacity: Number,
-  current_density_score: { type: Number, default: 0 },
-  coordinates: [Number], // [lat, lng] for heatmap/map centers
+  current_density_score: { type: Number, default: 0, index: true },
+  coordinates: [Number],
 });
 
 const POISchema = new mongoose.Schema({
-  zone_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Zone' },
+  zone_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Zone', index: true },
   name: { type: String, required: true },
-  type: { type: String, enum: ['food', 'beverage', 'restroom', 'merch', 'exit', 'info', 'medical', 'stage'] },
-  status: { type: String, enum: ['open', 'busy', 'closed'], default: 'open' },
-  service_rate: { type: Number, default: 1.0 }, // minutes per person
+  type: { type: String, enum: ['food', 'beverage', 'restroom', 'merch', 'exit', 'info', 'medical', 'stage'], index: true },
+  status: { type: String, enum: ['open', 'busy', 'closed'], default: 'open', index: true },
+  service_rate: { type: Number, default: 1.0 },
   base_capacity: { type: Number, default: 50 },
   latitude: Number,
   longitude: Number,

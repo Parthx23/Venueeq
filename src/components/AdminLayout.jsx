@@ -18,6 +18,7 @@ export default function AdminLayout({ children }) {
     <div className="flex h-screen overflow-hidden text-on-surface font-body relative">
       <div className="absolute inset-0 z-0 overflow-hidden mix-blend-screen opacity-30 pointer-events-none">
         <iframe
+          title="VenueQ Hero Background Animation"
           className="absolute top-1/2 left-1/2 w-[115vw] h-[115vh] -translate-x-1/2 -translate-y-1/2 object-cover"
           src="https://www.youtube.com/embed/XryIwrqLOXs?autoplay=1&mute=1&controls=0&loop=1&playlist=XryIwrqLOXs&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&disablekb=1&enablejsapi=1"
           frameBorder="0"
@@ -43,6 +44,7 @@ export default function AdminLayout({ children }) {
               <Link
                 key={item.path}
                 to={item.path}
+                aria-label={`Go to ${item.label}`}
                 className={`flex items-center gap-3 px-3 py-2 rounded text-sm font-medium transition-colors ${
                   active
                     ? 'bg-surface-container-high text-primary font-bold'
